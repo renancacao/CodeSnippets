@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+	<CodeSnippets
+	xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+		<CodeSnippet Format="1.0.0">
+			<Header>
+				<Title>SQL_SELECT</Title>
+				<Author>Renan Cacao</Author>  
+				<Description>Adiciona o básico de um select no SQL Server</Description>
+				<Shortcut>sqlselect</Shortcut>
+			</Header>
+			<Snippet>
+				<Imports>
+					<Import>
+						<Namespace>System.Data.SqlClient</Namespace>
+					</Import>
+				</Imports>
+				<Declarations>
+					<Literal>
+						<ID>strConex</ID>
+						<ToolTip>Substitua pela string de conexão.</ToolTip>
+						<Default>"STRING DE CONEXAO AQUI"</Default>
+					</Literal>
+					<Literal>
+						<ID>strSelect</ID>
+						<ToolTip>Substitua pela query de select.</ToolTip>
+						<Default>"QUERY DE SELECT"</Default>
+					</Literal>
+				</Declarations>  
+				<Code Language="VB">
+					<![CDATA[Dim cn As New SqlConnection($strConex$)
+						cn.Open()
+						Dim cmd As New SqlCommand($strSelect$, cn)
+						Dim dr as SqlDataReader
+						dr = cmd.ExecuteReader()
+						while dr.read
+						
+						end while
+						dr.close()
+						dr.dispose()
+						cmd.Dispose()
+						cn.Close()
+						cn.Dispose()]]>
+				</Code>
+			</Snippet>
+		</CodeSnippet>
+	</CodeSnippets>

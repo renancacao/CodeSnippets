@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+	<CodeSnippets
+	xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+		<CodeSnippet Format="1.0.0">
+			<Header>
+				<Title>FILL_DATAGRIDVIEW</Title>
+				<Author>Renan Cacao</Author>  
+				<Description>Adiciona o básico para preencher um DataGridView</Description>
+				<Shortcut>dgfill</Shortcut>
+			</Header>
+			<Snippet>
+				<Imports>
+					<Import>
+						<Namespace>System.Data.SqlClient</Namespace>
+					</Import>
+				</Imports>
+				<Declarations>
+					<Literal>
+						<ID>strConex</ID>
+						<ToolTip>Substitua pela string de conexão.</ToolTip>
+						<Default>"STRING DE CONEXAO AQUI"</Default>
+					</Literal>
+					<Literal>
+						<ID>strSelect</ID>
+						<ToolTip>Substitua pela query de select.</ToolTip>
+						<Default>"QUERY DE SELECT"</Default>
+					</Literal>
+					<Object>
+						<ID>DataGridView</ID>
+						<Type>System.Windows.Forms.DataGridView</Type>
+						<ToolTip>Substitua pelo seu DataGridView</ToolTip>
+						<Default>dg</Default>
+					</Object>
+				</Declarations>  
+				<Code Language="VB">
+					<![CDATA[Dim cn As New SqlConnection($strConex$)
+					cn.Open()
+					Dim cmd as new SqlCommand($strSelect$, cn)
+					'parametros aqui
+					Dim dt As New SqlDataAdapter(cmd)
+					Dim table As New DataTable()
+					dt.Fill(table)
+					$DataGridView$.datasource = table
+					dt.Dispose()
+					cmd.dispose()
+					cn.Close()
+					cn.Dispose()]]>
+				</Code>
+			</Snippet>
+		</CodeSnippet>
+	</CodeSnippets>

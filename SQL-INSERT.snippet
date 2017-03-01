@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+	<CodeSnippets
+	xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+		<CodeSnippet Format="1.0.0">
+			<Header>
+				<Title>SQL_INSERT</Title>
+				<Author>Renan Cacao</Author>  
+				<Description>Adiciona o básico de um insert no SQL Server</Description>
+				<Shortcut>sqlinsert</Shortcut>
+			</Header>
+			<Snippet>
+				<Imports>
+					<Import>
+						<Namespace>System.Data.SqlClient</Namespace>
+					</Import>
+				</Imports>
+				<Declarations>
+					<Literal>
+						<ID>strConex</ID>
+						<ToolTip>Substitua pela string de conexão.</ToolTip>
+						<Default>"STRING DE CONEXAO AQUI"</Default>
+					</Literal>
+					<Literal>
+						<ID>strInsert</ID>
+						<ToolTip>Substitua pela query de insert.</ToolTip>
+						<Default>"QUERY DE INSERT"</Default>
+					</Literal>
+				</Declarations>  
+				<Code Language="VB">
+					<![CDATA[Dim cn As New SqlConnection($strConex$)
+						cn.Open()
+						Dim cmd As New SqlCommand($strInsert$, cn)
+						cmd.ExecuteNonQuery()
+						cmd.Dispose()
+						cn.Close()
+						cn.Dispose()]]>
+				</Code>
+			</Snippet>
+		</CodeSnippet>
+	</CodeSnippets>

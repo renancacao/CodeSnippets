@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+	<CodeSnippets
+	xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+		<CodeSnippet Format="1.0.0">
+			<Header>
+				<Title>ISNULLOREMPTY</Title>
+				<Author>Renan Cacao</Author>  
+				<Description>Adiciona o o if que verifica se é Null ou Empty</Description>
+				<Shortcut>isnull</Shortcut>
+			</Header>
+			<Snippet>
+
+				<Declarations>
+					<Literal>
+						<ID>strVerifica</ID>
+						<ToolTip>Substitua pela string que será verificada.</ToolTip>
+						<Default>"STRING A SER VERIFICADA"</Default>
+					</Literal>
+					<Literal>
+						<ID>msgNulo</ID>
+						<ToolTip>Substitua pela mensagem de EM BRANCO.</ToolTip>
+						<Default>"EM BRANCO"</Default>
+					</Literal>
+				</Declarations>  
+				<Code Language="VB">
+					<![CDATA[If String.isNullorEmpty($strVerifica$) then
+					msgbox($msgNulo$,MsgBoxStyle.Exclamation)
+					exit sub 
+					end if]]>
+				</Code>
+			</Snippet>
+		</CodeSnippet>
+	</CodeSnippets>
